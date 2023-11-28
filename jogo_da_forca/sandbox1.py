@@ -97,7 +97,7 @@ def verificar(letter, *args):
     special_chars: list = ['ç', 'Ç']
     finded = False
 
-    if letter in palavra and letter not in vogals:
+    if letter in palavra and letter not in vogals and letter != 'C':
         letras_acertadas += letter
         letra[letter]['bg'] = 'green'
         letra[letter]['state'] = 'disabled'
@@ -105,7 +105,7 @@ def verificar(letter, *args):
         modal['text'] = f'TEM LETRA {letter}!'
         modal['fg'] = 'green'
         palavra_advinhada = resub(pattern=f'[^{letras_acertadas} ]', repl=' ', string=palavra)
-    elif letter not in palavra or letter in vogals:
+    elif letter not in palavra or letter in vogals or letter == 'C':
         if letter == 'A':
             for l in palavra:
                 if l in special_A or l == 'A':
@@ -219,7 +219,7 @@ def verificar(letter, *args):
         elif letter == 'C':
             for l in palavra:
                 if l in special_chars:
-                    letras_acertadas += ''.join([a for a in special_chars])
+                    letras_acertadas += 'C'.join([a for a in special_chars])
                     letra[letter]['bg'] = 'green'
                     letra[letter]['state'] = 'disabled'
                     app.unbind(f"<Key-{letter.lower()}>")
