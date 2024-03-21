@@ -3,7 +3,7 @@ from ttkthemes import ThemedTk
 from tkinter import messagebox
 from re import sub as resub
 from re import match
-import win32gui, win32con
+"import win32gui, win32con"
 from functools import partial
 from string import ascii_uppercase, ascii_lowercase, digits
 from sys import executable, argv
@@ -94,7 +94,7 @@ def verificar(letter, *args):
     special_I: list = ['í', 'Í', 'ì', 'Ì', 'î', 'Î']
     special_O: list = ['ó', 'Ó', 'ò', 'Ò', 'ô', 'Ô', 'õ', 'Õ']
     special_U: list = ['ú', 'Ú', 'ù', 'Ù', 'û', 'Û']
-    special_chars: list = ['ç', 'Ç']
+    special_chars: list = ['ç', 'C', 'Ç']
     finded = False
 
     if letter in palavra and letter not in vogals and letter != 'C':
@@ -276,6 +276,7 @@ def restart_game(*args):
 if not can_start:
     exit(0)
 
+"""
 Minimize = win32gui.GetForegroundWindow()
 win32gui.ShowWindow(Minimize, win32con.SW_MINIMIZE)
 
@@ -286,6 +287,7 @@ def close_window(hwnd):
 
 window = win32gui.GetForegroundWindow()
 close_window(window)
+"""
 
 
 # Creating window
